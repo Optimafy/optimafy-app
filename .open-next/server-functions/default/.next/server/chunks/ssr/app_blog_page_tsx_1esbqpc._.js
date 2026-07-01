@@ -1,3 +1,0 @@
-module.exports=[30506,a=>{"use strict";var b=a.i(87924);a.i(72850),a.i(783),a.s(["default",0,function(){return(0,b.jsx)("div",{className:"min-h-screen flex items-center justify-center bg-white",children:(0,b.jsxs)("div",{className:"text-center p-8",children:[(0,b.jsx)("h1",{className:"text-3xl font-bold text-zinc-900 mb-4",children:"Página não encontrada"}),(0,b.jsx)("p",{className:"text-zinc-600",children:"Esta página está disponível apenas durante o desenvolvimento."})]})})}])}];
-
-//# sourceMappingURL=app_blog_page_tsx_1esbqpc._.js.map
