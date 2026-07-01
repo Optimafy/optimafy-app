@@ -94,11 +94,13 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             {/* Primary CTA */}
-            <WhatsappButton className="!px-7 !py-3 !text-sm" />
+            <motion.div>
+              <WhatsappButton className="!px-7 !py-3 !text-sm" />
+            </motion.div>
 
             {/* Secondary CTA */}
             <a
-              href="#solucoes"
+              href="/solucoes"
               className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-zinc-700 rounded-xl border border-zinc-200 hover:border-zinc-400 hover:text-zinc-950 hover:bg-zinc-50 transition-all duration-300"
             >
               Conhecer Soluções
@@ -107,9 +109,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
     </section>
   );
 }
