@@ -14,11 +14,37 @@ export default function ContatoPage() {
   const [formData, setFormData] = useState({ name: "", contact: "", message: "", lgpd: false, marketing: false });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({ name: "", contact: "", message: "", lgpd: false, marketing: false });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error();
+      }
+
+      setSubmitted(true);
+
+      setFormData({
+        name: "",
+        contact: "",
+        message: "",
+        lgpd: false,
+        marketing: false,
+      });
+
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao enviar a mensagem.");
+    }
   };
 
   return (
