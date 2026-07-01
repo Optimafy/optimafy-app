@@ -2,59 +2,99 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsappButton from "@/components/WhatsappButton";
+import { useState } from 'react';
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { Globe, Bot, BarChart3, Plug, Code2, Workflow, PieChart, Network, ArrowRight } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { ChevronDown, Globe, Bot, BarChart3, Plug } from "lucide-react";
+import { FaReact, FaNodeJs, FaPython, FaAws } from "react-icons/fa";
+import { SiNextdotjs, SiPostgresql, SiTypescript } from "react-icons/si";
 
-const features = [
+const solutions = [
   {
     icon: Globe,
-    accent: Code2,
-    title: "Desenvolvimento Web Full-Stack",
-    description:
-      "Aplicações web robustas e escaláveis com React, Next.js e Node.js. Do MVP ao produto enterprise, com foco em performance e experiência do usuário.",
+    title: "Sistemas e plataformas sob medida",
+    problem: "Sua empresa precisa de um sistema que se adapte aos seus processos, não o contrário?",
+    solution: "Criamos soluções digitais sob medida para organizar seus processos. Podem ser sistemas internos, plataformas, portais ou aplicações específicas.",
+    benefits: [
+      "Processos organizados de forma personalizada",
+      "Escalabilidade para o crescimento da sua empresa",
+      "Experiência do usuário adaptada às suas necessidades"
+    ],
+    tech: [
+      { name: "React", icon: FaReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "AWS", icon: FaAws },
+    ],
     gradient: "from-violet-500 to-purple-600",
-    glowColor: "violet",
+    whatsappMessage: "Olá! Quero saber mais sobre os sistemas e plataformas sob medida que vocês criam para organizar processos empresariais.",
   },
   {
     icon: Bot,
-    accent: Workflow,
-    title: "Automações Inteligentes",
-    description:
-      "RPA, workflows automatizados e integrações que eliminam tarefas repetitivas e reduzem erros operacionais.",
+    title: "Automatize tarefas repetitivas",
+    problem: "Sua equipe gasta tempo com tarefas que poderiam ser automatizadas?",
+    solution: "Automatizamos tarefas repetitivas para economizar tempo e reduzir retrabalho. Integração de dados, envio de e-mails, atualização de planilhas e muito mais.",
+    benefits: [
+      "Menos trabalho manual",
+      "Menos erros operacionais",
+      "Mais tempo para atividades estratégicas"
+    ],
+    tech: [
+      { name: "Python", icon: FaPython },
+      { name: "Node.js", icon: FaNodeJs },
+    ],
     gradient: "from-blue-500 to-cyan-500",
-    glowColor: "blue",
+    whatsappMessage: "Olá! Quero conversar sobre automatização de tarefas repetitivas, como integração de dados, envio de e-mails e atualização de planilhas.",
   },
   {
     icon: BarChart3,
-    accent: PieChart,
-    title: "Análise de Dados & BI",
-    description:
-      "Dashboards inteligentes e pipelines de dados que transformam informações brutas em decisões estratégicas mensuráveis.",
+    title: "Visualize seus resultados",
+    problem: "Não tem visibilidade clara sobre os resultados da sua empresa?",
+    solution: "Dashboards para acompanhar vendas, operação, clientes e resultados em tempo real.",
+    benefits: [
+      "Decisões baseadas em dados",
+      "Informações organizadas em um só lugar",
+      "Visibilidade em tempo real sobre o negócio"
+    ],
+    tech: [
+      { name: "React", icon: FaReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "PostgreSQL", icon: SiPostgresql },
+    ],
     gradient: "from-cyan-500 to-teal-500",
-    glowColor: "cyan",
+    whatsappMessage: "Olá! Quero entender melhor sobre os dashboards para acompanhar vendas, operação, clientes e resultados em tempo real.",
   },
   {
     icon: Plug,
-    accent: Network,
-    title: "Integrações de Sistemas & APIs",
-    description:
-      "Conectamos ERPs, CRMs e plataformas legadas em um ecossistema unificado. APIs RESTful e webhooks que fazem seus sistemas conversarem em tempo real.",
+    title: "Conecte seus sistemas",
+    problem: "Seus sistemas não se comunicam, gerando trabalho manual?",
+    solution: "Fazemos sistemas diferentes conversarem entre si sem depender de trabalho manual. Integramos ERPs, CRMs e plataformas legadas em um ecossistema unificado.",
+    benefits: [
+      "Sistemas integrados em tempo real",
+      "Menos retrabalho com dados duplicados",
+      "Fluxos de trabalho mais eficientes"
+    ],
+    tech: [
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "AWS", icon: FaAws },
+      { name: "Python", icon: FaPython },
+    ],
     gradient: "from-indigo-500 to-violet-600",
-    glowColor: "indigo",
+    whatsappMessage: "Olá! Quero conversar sobre integração de sistemas como ERPs, CRMs e plataformas legadas em um ecossistema unificado.",
   },
 ];
 
 export default function SolucoesPage() {
-  const whatsappUrl = "https://wa.me/556282470405?text=Olá, gostaria de saber mais sobre as automações e integrações que vocês oferecem para otimizar meu negócio!";
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="relative overflow-hidden pt-24 pb-16">
+      <main className="relative overflow-hidden pt-24">
         {/* Hero Section */}
-        <section className="py-20">
+        <section className="py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -71,100 +111,118 @@ export default function SolucoesPage() {
               </motion.p>
               <motion.h1
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 mb-6"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900 mb-4"
               >
-                Soluções digitais sob medida que resolvem problemas reais do seu negócio
+                Soluções que resolvem seus problemas
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-lg sm:text-xl text-zinc-600 max-w-2xl mx-auto mb-10"
+                className="text-base sm:text-lg text-zinc-600 max-w-2xl mx-auto mb-7"
               >
-                Cada solução é projetada para transformar sua operação com tecnologia de ponta.
+                Cada solução começa por entender o seu problema, então mostramos como resolvemos.
               </motion.p>
-              <motion.a
-                variants={fadeInUp}
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-violet-600/20 hover:shadow-violet-500/30"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-                <span>Falar no WhatsApp</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              <motion.div variants={fadeInUp}>
+                <WhatsappButton className="!px-7 !py-3 !text-sm" />
+              </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* Features Grid */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportConfig}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-            >
-              {features.map((feature, index) => (
+        {/* Solutions Sections */}
+        <div className="space-y-10">
+          {solutions.map((solution, index) => (
+            <section key={solution.title} className="py-6">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
-                  key={feature.title}
-                  variants={fadeInUp}
-                  whileHover={{ scale: 1.02, y: -4 }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative rounded-2xl border border-zinc-200 bg-zinc-50/50 hover:bg-white hover:shadow-lg p-8 overflow-hidden cursor-default transition-all duration-300"
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={viewportConfig}
+                  className={`flex flex-col lg:flex-row gap-8 items-start`}
                 >
-                  {/* Hover glow border */}
-                  <div
-                    className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                    style={{
-                      background: `linear-gradient(135deg, ${
-                        feature.glowColor === "violet"
-                          ? "rgba(139,92,246,0.1)"
-                          : feature.glowColor === "blue"
-                          ? "rgba(59,130,246,0.1)"
-                          : feature.glowColor === "cyan"
-                          ? "rgba(6,182,212,0.1)"
-                          : "rgba(99,102,241,0.1)"
-                      }, transparent)`,
-                    }}
-                  />
-
-                  <div className="relative z-10">
-                    {/* Icon */}
-                    <div className="mb-6 flex items-center gap-3">
-                      <div
-                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-lg`}
-                      >
-                        <feature.icon className="w-8 h-8 text-white" />
+                  <motion.div
+                    variants={fadeInUp}
+                    className="w-full"
+                  >
+                    <div className="p-5 rounded-2xl border border-zinc-200 bg-zinc-50">
+                      <div className="mb-4">
+                        <div
+                          className={`w-10 h-10 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg`}
+                        >
+                          <solution.icon className="w-5 h-5 text-white" />
+                        </div>
                       </div>
-                      <feature.accent className="w-6 h-6 text-zinc-700 group-hover:text-zinc-500 transition-colors" />
-                    </div>
+                      <h2 className="text-xl font-bold text-zinc-900 mb-6">{solution.title}</h2>
 
-                    {/* Text */}
-                    <h3 className="text-2xl font-semibold text-zinc-900 mb-3 group-hover:text-zinc-900 transition-colors">
-                      {feature.title}
-                    </h3>
-                    <p className="text-zinc-600 leading-relaxed text-lg mb-6">
-                      {feature.description}
-                    </p>
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-violet-600 font-semibold group-hover:text-violet-800 transition-colors"
-                    >
-                      Saber mais <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
+                      <div className="mb-6">
+                        <h3 className="text-base font-semibold text-red-600 mb-2">O Problema</h3>
+                        <p className="text-zinc-700 text-sm">{solution.problem}</p>
+                      </div>
+
+                      <div className="mb-6">
+                        <h3 className="text-base font-semibold text-green-600 mb-2">A Solução</h3>
+                        <p className="text-zinc-700 text-sm">{solution.solution}</p>
+                      </div>
+
+                      <div className="mb-6">
+                        <h3 className="text-base font-semibold text-violet-600 mb-3">Benefícios</h3>
+                        <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                          {solution.benefits.map((benefit, i) => (
+                            <li key={i} className="flex items-center gap-3 text-zinc-700 text-sm">
+                              <div className="w-2 h-2 rounded-full bg-violet-500 shrink-0" />
+                              <span>{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="mb-6 border border-zinc-200 rounded-xl p-4 bg-zinc-50/50">
+                        {/* Botão do Dropdown */}
+                        <button
+                          onClick={() => setIsOpen(!isOpen)}
+                          className="flex items-center justify-between w-full text-left"
+                        >
+                          <h3 className="text-base font-semibold text-zinc-700">
+                              Tecnologias (Informação Complementar)
+                          </h3>
+                          <ChevronDown 
+                            className={`w-5 h-5 text-zinc-500 transition-transform duration-200 ${
+                              isOpen ? 'rotate-180' : ''
+                            }`} 
+                          />
+                        </button>
+
+                        {/* Conteúdo Condicional */}
+                        {isOpen && (
+                          <div className="mt-4">
+                            <div className="flex flex-wrap gap-3">
+                              {solution.tech.map((tech, i) => (
+                                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-zinc-200 shadow-sm">
+                                  <tech.icon className="w-3.5 h-3.5 text-zinc-700" />
+                                  <span className="text-xs text-zinc-700 font-medium">{tech.name}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="pt-2">
+                        <WhatsappButton
+                          className="!px-7 !py-3 !text-sm"
+                          message={solution.whatsappMessage}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
                 </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
+              </div>
+            </section>
+          ))}
+        </div>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-violet-50 to-blue-50">
+        <section className="py-12 bg-gradient-to-br from-violet-50 to-blue-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               variants={staggerContainer}
@@ -174,27 +232,19 @@ export default function SolucoesPage() {
             >
               <motion.h2
                 variants={fadeInUp}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 mb-6"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 mb-4"
               >
                 Pronto para transformar sua operação?
               </motion.h2>
               <motion.p
                 variants={fadeInUp}
-                className="text-lg text-zinc-600 mb-10"
+                className="text-base text-zinc-600 mb-7"
               >
                 Converse com nossos especialistas e descubra como podemos ajudar sua empresa com tecnologia sob medida.
               </motion.p>
-              <motion.a
-                variants={fadeInUp}
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-10 py-5 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-violet-600/20 hover:shadow-violet-500/30"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-                <span>Falar no WhatsApp</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              <motion.div variants={fadeInUp}>
+                <WhatsappButton className="!px-7 !py-3 !text-sm" />
+              </motion.div>
             </motion.div>
           </div>
         </section>

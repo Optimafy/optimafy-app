@@ -3,8 +3,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturesGrid from "@/components/FeaturesGrid";
+import HowItWorks from "@/components/HowItWorks";
 import TechShowcase from "@/components/TechShowcase";
-import Benefits from "@/components/Benefits";
+import FAQ from "@/components/FAQ";
 import HomeCTA from "@/components/HomeCTA";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -33,12 +34,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeaturesGrid />
+      <HowItWorks />
       <TechShowcase />
-      <Benefits />
+      <FAQ />
 
       {/* Blog Preview (dev only) */}
       {isDev && (
-        <section className="py-20 bg-zinc-50">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -62,7 +64,7 @@ export default function Home() {
                     variants={fadeInUp}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ y: -4 }}
-                    className="group relative rounded-2xl border border-zinc-200 bg-white hover:shadow-lg p-8 overflow-hidden cursor-pointer transition-all duration-300"
+                    className="group relative rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:shadow-lg p-8 overflow-hidden cursor-pointer transition-all duration-300"
                   >
                     <div
                       className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${post.gradient}`}
@@ -70,9 +72,7 @@ export default function Home() {
                     <h3 className="text-xl font-bold text-zinc-900 mb-4 group-hover:text-zinc-950 transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-zinc-600 mb-6">
-                      {post.excerpt}
-                    </p>
+                    <p className="text-zinc-600 mb-6">{post.excerpt}</p>
                     <Link
                       href="/blog"
                       className="inline-flex items-center gap-2 text-violet-600 font-semibold group-hover:text-violet-800 transition-colors"

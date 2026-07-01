@@ -24,8 +24,12 @@ export default function Footer() {
                 OPTIMA<span className="text-[#1B365D]">FY</span>
               </span>
             </Link>
-            <p className="text-zinc-600 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-zinc-600 text-sm leading-relaxed mb-3 max-w-xs">
               Engenharia de software de precisão para empresas que querem escalar com tecnologia e automação inteligente.
+            </p>
+            <p className="text-zinc-700 text-sm font-semibold mb-6">
+              OPTIMAFY LTDA<br />
+              CNPJ: 66.948.875/0001-28
             </p>
 
             {/* Contact Info */}

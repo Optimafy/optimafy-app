@@ -17,39 +17,39 @@ import {
 const benefits = [
   {
     icon: TrendingDown,
-    title: "Redução de Custos Operacionais",
+    title: "Maior eficiência",
     description:
-      "Automações inteligentes substituem processos manuais repetitivos, eliminando retrabalho e otimizando a necessidade de recursos dedicados a tarefas que não geram valor direto.",
+      "Reduza tarefas repetitivas e automatize processos para sua equipe trabalhar no que realmente importa.",
     details: [
-      "Eliminação de tarefas manuais repetitivas",
-      "Redução de erros humanos e retrabalho",
-      "Otimização de recursos e equipes",
+      "Menos trabalho manual",
+      "Mais tempo para atividades estratégicas",
+      "Processos mais organizados",
     ],
     gradient: "from-violet-500 to-purple-600",
     direction: "left",
   },
   {
     icon: Rocket,
-    title: "Velocidade de Processamento",
+    title: "Tomada de decisão mais rápida",
     description:
-      "Sistemas otimizados e automatizados entregam resultados em minutos, não dias. Pipelines de dados em tempo real que aceleram a tomada de decisão estratégica.",
+      "Tenha acesso a informações em tempo real e dashboards intuitivos para tomar decisões mais assertivas.",
     details: [
-      "Processamento em tempo real",
-      "Relatórios instantâneos sob demanda",
-      "Deploy contínuo e iteração rápida",
+      "Dados organizados",
+      "Relatórios instantâneos",
+      "Visão clara do negócio",
     ],
     gradient: "from-blue-500 to-cyan-500",
     direction: "right",
   },
   {
     icon: ShieldCheck,
-    title: "Segurança & Disponibilidade",
+    title: "Segurança e confiabilidade",
     description:
-      "Infraestrutura cloud-native com criptografia de ponta a ponta, backups automatizados e monitoramento contínuo. Seus dados protegidos com padrões enterprise.",
+      "Soluções robustas e seguras, com backup automatizado e suporte contínuo para garantir o funcionamento.",
     details: [
-      "Criptografia em repouso e trânsito",
-      "Backups automatizados com redundância",
-      "Monitoramento e alertas em tempo real",
+      "Segurança de dados",
+      "Backup automatizado",
+      "Suporte contínuo",
     ],
     gradient: "from-cyan-500 to-teal-500",
     direction: "left",
@@ -58,46 +58,32 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section id="beneficios" className="relative py-24 sm:py-32">
-      {/* Background accent */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-violet-600/5 via-transparent to-transparent rounded-full blur-3xl" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="beneficios" className="relative py-20 sm:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <motion.p
-            variants={fadeInUp}
-            className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-4"
-          >
-            Soluções que Geram Eficiência Real
-          </motion.p>
           <motion.h2
             variants={fadeInUp}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight mb-6"
           >
-            Benefícios que impactam{" "}
-            <span className="text-[#1B365D]">
-              diretamente sua operação
-            </span>
+            Resultados que fazem a diferença
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="max-w-2xl mx-auto text-lg text-zinc-600"
           >
-            Conheça os benefícios de cada solução para transformar sua empresa.
+            Veja como nossas soluções podem transformar sua operação.
           </motion.p>
         </motion.div>
 
         {/* Zig-Zag Benefits */}
-        <div className="space-y-24">
+        <div className="space-y-20">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
@@ -125,12 +111,12 @@ export default function Benefits() {
 
                     <div className="relative z-10">
                       <div
-                        className={`inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br ${benefit.gradient} mb-6 shadow-lg`}
+                        className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${benefit.gradient} mb-6 shadow-lg`}
                       >
-                        <benefit.icon className="w-12 h-12 text-white" />
+                        <benefit.icon className="w-10 h-10 text-white" />
                       </div>
 
-                      <h3 className="text-xl font-semibold text-zinc-900">
+                      <h3 className="text-2xl font-bold text-zinc-900">
                         {benefit.title}
                       </h3>
                     </div>

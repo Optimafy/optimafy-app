@@ -2,44 +2,31 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsappButton from "@/components/WhatsappButton";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { Rocket, Target, Lightbulb, Users, Code2, Zap, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
-import { FaWhatsapp, FaReact, FaNodeJs, FaPython, FaAws } from "react-icons/fa";
-import { SiNextdotjs, SiPostgresql, SiTypescript } from "react-icons/si";
+import { Rocket, Target, Lightbulb, Users, ShieldCheck, CheckCircle2, Zap } from "lucide-react";
 
 const steps = [
-  { number: "01", title: "Descoberta", description: "Analisamos profundamente os desafios do seu negócio e definimos objetivos claros." },
-  { number: "02", title: "Planejamento", description: "Criamos um roadmap detalhado com prazos e entregas bem definidas." },
-  { number: "03", title: "Desenvolvimento", description: "Construímos soluções com foco em qualidade, escalabilidade e experiência do usuário." },
-  { number: "04", title: "Testes & Validação", description: "Garantimos que tudo funcione perfeitamente antes do lançamento." },
-  { number: "05", title: "Lançamento", description: "Implementamos a solução com suporte completo durante todo o processo." },
-  { number: "06", title: "Otimização Contínua", description: "Acompanhamos e evoluímos a solução conforme as necessidades do seu negócio." },
+  { number: "01", title: "Conversamos", description: "Primeiro, conversamos para entender melhor sua empresa e suas necessidades." },
+  { number: "02", title: "Entendemos os gargalos", description: "Analisamos seus processos e identificamos os pontos que podem ser otimizados." },
+  { number: "03", title: "Planejamos", description: "Criamos um plano de ação personalizado para resolver seus problemas específicos." },
+  { number: "04", title: "Desenvolvemos", description: "Construímos a solução digital sob medida para a sua empresa." },
+  { number: "05", title: "Implementamos", description: "Colocamos a solução em funcionamento e garantimos que tudo funcione perfeitamente." },
+  { number: "06", title: "Acompanhamos e damos suporte", description: "Continuamos acompanhando e oferecendo suporte contínuo para garantir o sucesso." },
 ];
 
 const differentiators = [
-  { icon: CheckCircle2, title: "Foco no Negócio", description: "Não só criamos código — resolvemos problemas reais do seu negócio." },
-  { icon: Zap, title: "Agilidade", description: "Entregamos valor em ciclos curtos, com feedback constante." },
-  { icon: ShieldCheck, title: "Segurança", description: "Priorizamos segurança e qualidade em tudo o que fazemos." },
-];
-
-const techStack = [
-  { name: "React", icon: FaReact },
-  { name: "Next.js", icon: SiNextdotjs },
-  { name: "Node.js", icon: FaNodeJs },
-  { name: "Python", icon: FaPython },
-  { name: "AWS", icon: FaAws },
-  { name: "PostgreSQL", icon: SiPostgresql },
-  { name: "TypeScript", icon: SiTypescript },
+  { icon: CheckCircle2, title: "Foco no Negócio", description: "Não só criamos tecnologia — resolvemos problemas reais do seu negócio." },
+  { icon: Zap, title: "Resultados Rápidos", description: "Entregamos valor em ciclos curtos, com feedback constante e ajustes rápidos." },
+  { icon: ShieldCheck, title: "Confiança e Acompanhamento", description: "Oferecemos suporte contínuo e acompanhamos o resultado da solução." },
 ];
 
 export default function SobrePage() {
-  const whatsappUrl = "https://wa.me/556282470405?text=Olá, gostaria de saber mais sobre as automações e integrações que vocês oferecem para otimizar meu negócio!";
-
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="relative overflow-hidden pt-24 pb-16">
+      <main className="relative overflow-hidden pt-24">
         {/* Hero Section */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,14 +47,17 @@ export default function SobrePage() {
                 variants={fadeInUp}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 mb-6"
               >
-                Engenharia de Software de Precisão
+                Soluções que Fazem a Diferença
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-lg sm:text-xl text-zinc-600 max-w-3xl mx-auto"
+                className="text-lg sm:text-xl text-zinc-600 max-w-3xl mx-auto mb-8"
               >
-                Somos uma equipe apaixonada por tecnologia e por resolver problemas reais. Criamos soluções digitais que transformam operações e impulsionam o crescimento dos nossos clientes.
+                Somos uma equipe apaixonada por ajudar empresas a trabalhar melhor com tecnologia. Focamos em resultados tangíveis, confiança e atendimento personalizado.
               </motion.p>
+              <motion.div variants={fadeInUp}>
+                <WhatsappButton />
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -190,47 +180,6 @@ export default function SobrePage() {
           </div>
         </section>
 
-        {/* Tech Stack */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportConfig}
-              className="text-center mb-16"
-            >
-              <motion.p
-                variants={fadeInUp}
-                className="text-sm font-semibold text-violet-600 uppercase tracking-widest mb-4"
-              >
-                Tecnologias
-              </motion.p>
-              <motion.h2
-                variants={fadeInUp}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900"
-              >
-                Nossa Stack de Tecnologias
-              </motion.h2>
-            </motion.div>
-
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {techStack.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  variants={fadeInUp}
-                  whileHover={{ y: -4, scale: 1.1 }}
-                  transition={{ delay: index * 0.08 }}
-                  className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-violet-200 hover:bg-violet-50 transition-all duration-300"
-                >
-                  <tech.icon className="w-12 h-12 text-zinc-700" />
-                  <span className="text-sm font-semibold text-zinc-700">{tech.name}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA */}
         <section className="py-20 bg-zinc-900">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -252,17 +201,9 @@ export default function SobrePage() {
               >
                 Entre em contato conosco e descubra como podemos ajudar a transformar sua operação com tecnologia de ponta.
               </motion.p>
-              <motion.a
-                variants={fadeInUp}
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-10 py-5 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-violet-600/30 hover:shadow-violet-500/40"
-              >
-                <FaWhatsapp className="w-5 h-5" />
-                <span>Falar no WhatsApp</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              <motion.div variants={fadeInUp}>
+                <WhatsappButton />
+              </motion.div>
             </motion.div>
           </div>
         </section>

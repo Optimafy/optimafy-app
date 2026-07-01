@@ -2,15 +2,15 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsappButton from "@/components/WhatsappButton";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function ContatoPage() {
-  const whatsappUrl = "https://wa.me/556282470405?text=Olá, gostaria de saber mais sobre as automações e integrações que vocês oferecem para otimizar meu negócio!";
   const [formData, setFormData] = useState({ name: "", contact: "", message: "", lgpd: false, marketing: false });
   const [submitted, setSubmitted] = useState(false);
 
@@ -24,7 +24,7 @@ export default function ContatoPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="relative overflow-hidden pt-24 pb-16">
+      <main className="relative overflow-hidden pt-24">
         {/* Hero Section */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,14 +45,17 @@ export default function ContatoPage() {
                 variants={fadeInUp}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 mb-6"
               >
-                Entre em Contato
+                Entre em contato sem compromisso
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-lg sm:text-xl text-zinc-600 max-w-2xl mx-auto"
+                className="text-lg sm:text-xl text-zinc-600 max-w-2xl mx-auto mb-10"
               >
-                Fale conosco para saber mais sobre nossas soluções e como podemos ajudar a transformar sua operação.
+                Resposta rápida, atendimento personalizado e orçamento sem compromisso.
               </motion.p>
+              <motion.div variants={fadeInUp}>
+                <WhatsappButton />
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -81,14 +84,7 @@ export default function ContatoPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-zinc-900 mb-1">WhatsApp</h3>
-                      <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-zinc-600 hover:text-violet-600 font-medium transition-colors"
-                      >
-                        +55 (62) 8247-0405
-                      </a>
+                      <p className="text-zinc-600">+55 (62) 8247-0405</p>
                     </div>
                   </motion.div>
 
@@ -98,12 +94,7 @@ export default function ContatoPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-zinc-900 mb-1">E-mail</h3>
-                      <a
-                        href="mailto:optimafy@gmail.com"
-                        className="text-zinc-600 hover:text-violet-600 font-medium transition-colors"
-                      >
-                        optimafy@gmail.com
-                      </a>
+                      <p className="text-zinc-600">optimafy@gmail.com</p>
                     </div>
                   </motion.div>
 
@@ -117,19 +108,6 @@ export default function ContatoPage() {
                     </div>
                   </motion.div>
                 </div>
-
-                <motion.div variants={fadeInUp} className="mt-10">
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 px-10 py-5 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-violet-600/20 hover:shadow-violet-500/30"
-                  >
-                    <FaWhatsapp className="w-5 h-5" />
-                    <span>Falar no WhatsApp</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </motion.div>
               </motion.div>
 
               {/* Form */}

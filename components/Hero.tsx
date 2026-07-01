@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import WhatsappButton from "./WhatsappButton";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative flex items-center justify-center overflow-hidden py-14 pt-24">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 z-0">
         {/* Grid pattern */}
@@ -59,30 +60,30 @@ export default function Hero() {
           viewport={viewportConfig}
         >
           {/* Badge */}
-          <motion.div variants={fadeInUp} className="flex justify-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-200 bg-zinc-50/60 backdrop-blur-sm text-sm text-zinc-600">
-              <Sparkles className="w-4 h-4 text-violet-500" />
+          <motion.div variants={fadeInUp} className="flex justify-center mb-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-200 bg-zinc-50/60 backdrop-blur-sm text-xs text-zinc-600">
+              <Sparkles className="w-3 h-3 text-violet-500" />
               <span>Automações que transformam operações</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
             </div>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-4"
           >
-            <span className="text-zinc-900">Criamos sistemas, automações e integrações para sua empresa</span>
+            <span className="text-zinc-900">Sistemas, automações e integrações</span>
             <br />
             <span className="text-[#1B365D]">
-              trabalhar melhor, reduzir tarefas manuais e organizar processos
+              para sua empresa trabalhar melhor
             </span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={fadeInUp}
-            className="max-w-2xl mx-auto text-lg sm:text-xl text-zinc-600 leading-relaxed mb-10"
+            className="max-w-2xl mx-auto text-base sm:text-lg text-zinc-600 leading-relaxed mb-7"
           >
             Soluções digitais sob medida que resolvem problemas reais do seu negócio — sem complicação, com resultado.
           </motion.p>
@@ -90,51 +91,25 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             {/* Primary CTA */}
-            <a
-              href="https://wa.me/556282470405?text=Olá, gostaria de saber mais sobre as automações e integrações que vocês oferecem para otimizar meu negócio!"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-xl shadow-violet-600/20 hover:shadow-violet-500/30"
-            >
-              <FaWhatsapp className="w-5 h-5" />
-              <span>Falar no WhatsApp</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 blur-2xl opacity-30 group-hover:opacity-50 transition-opacity -z-10" />
-            </a>
+            <WhatsappButton className="!px-7 !py-3 !text-sm" />
 
             {/* Secondary CTA */}
             <a
               href="#solucoes"
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-zinc-700 rounded-xl border border-zinc-200 hover:border-zinc-400 hover:text-zinc-950 hover:bg-zinc-50 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-zinc-700 rounded-xl border border-zinc-200 hover:border-zinc-400 hover:text-zinc-950 hover:bg-zinc-50 transition-all duration-300"
             >
               Conhecer Soluções
+              <ArrowRight className="w-4 h-4" />
             </a>
-          </motion.div>
-
-          {/* Tech Stack Pills */}
-          <motion.div
-            variants={fadeInUp}
-            className="mt-16 flex flex-wrap items-center justify-center gap-3"
-          >
-            {["React", "Node.js", "Python", "AWS", "PostgreSQL", "TypeScript"].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1.5 text-xs font-medium text-zinc-600 bg-zinc-50 border border-zinc-200 rounded-full"
-                >
-                  {tech}
-                </span>
-              )
-            )}
           </motion.div>
         </motion.div>
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
     </section>
   );
 }
