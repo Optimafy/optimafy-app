@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import HowItWorks from "@/components/HowItWorks";
-import TechShowcase from "@/components/TechShowcase";
 import FAQ from "@/components/FAQ";
 import HomeCTA from "@/components/HomeCTA";
 import Footer from "@/components/Footer";
@@ -14,6 +13,61 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const isDev = process.env.NODE_ENV === "development";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Quanto custa um projeto?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O custo varia de projeto para projeto, dependendo da complexidade da solução. Entre em contato para receber um orçamento personalizado e sem compromisso.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quanto tempo leva?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O prazo também depende da complexidade, mas costuma variar de algumas semanas a alguns meses. Sempre definimos prazos claros antes de iniciar o projeto.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vocês atendem empresas de qualquer porte?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim! Atendemos desde pequenos negócios até grandes empresas, sempre adaptando a solução às necessidades específicas de cada cliente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vocês oferecem suporte após a entrega?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim! Oferecemos suporte contínuo para garantir que sua solução continue funcionando perfeitamente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Preciso entender de tecnologia?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Não! Nós cuidamos de toda a parte técnica para você. Você foca no seu negócio.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Como funciona o orçamento?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Primeiro conversamos, entendemos suas necessidades e apresentamos uma proposta com orçamento detalhado sem compromisso.",
+      },
+    },
+  ],
+};
 
 const blogPreviewPosts = [
   {
@@ -31,11 +85,14 @@ const blogPreviewPosts = [
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Navbar />
       <Hero />
       <FeaturesGrid />
       <HowItWorks />
-      <TechShowcase />
       <FAQ />
 
       {/* Blog Preview (dev only) */}

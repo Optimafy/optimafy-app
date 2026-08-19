@@ -8,6 +8,7 @@ import {
 } from "@/lib/animations";
 import { MessageCircle, Search, ClipboardList, Code, Monitor, Headset } from "lucide-react";
 import WhatsappButton from "./WhatsappButton";
+import SectionBackground from "./SectionBackground";
 
 const steps = [
   {
@@ -56,8 +57,9 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="relative py-12 bg-zinc-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="como-funciona" className="relative py-12 bg-zinc-50 dark:bg-abyss-2 overflow-hidden">
+      <SectionBackground variant="blue" grid />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           variants={staggerContainer}
@@ -68,14 +70,14 @@ export default function HowItWorks() {
         >
           <motion.h2
             variants={fadeInUp}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 tracking-tight mb-3"
+            className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-mist tracking-tight mb-3"
           >
             Como funciona contratar a Optimafy?
           </motion.h2>
         </motion.div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Light mode: dark accent card grid (preview 3) */}
+        <div className="dark:hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -90,12 +92,46 @@ export default function HowItWorks() {
                 >
                   <step.icon className="w-5 h-5 text-white" />
                 </div>
-                <div className="text-xl font-bold text-zinc-900">{step.number}</div>
+                <div className="font-display text-xl font-bold text-zinc-900">{step.number}</div>
               </div>
-              <h3 className="text-lg font-bold text-zinc-900 mb-2">{step.title}</h3>
+              <h3 className="font-display text-lg font-bold text-zinc-900 mb-2">{step.title}</h3>
               <p className="text-zinc-600 text-sm">{step.description}</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* Dark mode: depth timeline with connecting gradient line (preview 4) */}
+        <div className="hidden dark:block relative pl-8 sm:pl-10">
+          <div
+            aria-hidden="true"
+            className="absolute left-3 sm:left-4 top-2 bottom-2 w-px bg-gradient-to-b from-violet-500 to-cyan-400"
+          />
+          <div className="space-y-8">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                variants={fadeInUp}
+                transition={{ delay: index * 0.08 }}
+                className="relative surface-card p-5 flex items-start gap-4"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[calc(2rem+7px)] sm:-left-[calc(2.5rem+7px)] top-6 w-3.5 h-3.5 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 shadow-glow"
+                />
+                <div
+                  className={`shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}
+                >
+                  <step.icon className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-display text-base font-bold text-mist mb-1">
+                    {step.number} · {step.title}
+                  </h3>
+                  <p className="text-mist-soft text-sm">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* CTA after How It Works */}

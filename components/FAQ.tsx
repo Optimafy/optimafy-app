@@ -9,6 +9,7 @@ import {
 } from "@/lib/animations";
 import { ChevronDown } from "lucide-react";
 import WhatsappButton from "./WhatsappButton";
+import SectionBackground from "./SectionBackground";
 
 const faqs = [
   {
@@ -41,8 +42,9 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="relative py-12 bg-zinc-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="relative py-12 bg-zinc-50 dark:bg-abyss-2 overflow-hidden">
+      <SectionBackground variant="violet" />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           variants={staggerContainer}
@@ -53,7 +55,7 @@ export default function FAQ() {
         >
           <motion.h2
             variants={fadeInUp}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 tracking-tight mb-3"
+            className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-mist tracking-tight mb-3"
           >
             Perguntas frequentes
           </motion.h2>
@@ -66,18 +68,18 @@ export default function FAQ() {
             key={index}
             variants={fadeInUp}
             transition={{ delay: index * 0.08 }}
-            className="border border-zinc-200 bg-white rounded-2xl overflow-hidden"
+            className="surface-card overflow-hidden"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
               className="w-full px-5 py-4 flex items-center justify-between text-left"
             >
-              <span className="text-base font-semibold text-zinc-900">{faq.question}</span>
+              <span className="font-display text-base font-semibold text-zinc-900 dark:text-mist">{faq.question}</span>
               <motion.div
                 animate={{ rotate: openIndex === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown className="w-5 h-5 text-zinc-600" />
+                <ChevronDown className="w-5 h-5 text-zinc-600 dark:text-mist-soft" />
               </motion.div>
             </button>
             <AnimatePresence>
@@ -87,7 +89,7 @@ export default function FAQ() {
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="px-5 pb-4 text-zinc-600 text-sm"
+                  className="px-5 pb-4 text-zinc-600 dark:text-mist-soft text-sm"
                 >
                   {faq.answer}
                 </motion.div>

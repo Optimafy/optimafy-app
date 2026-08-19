@@ -3,22 +3,22 @@ import Footer from "@/components/Footer";
 
 export default function PoliticaDePrivacidadePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-abyss">
       <Navbar />
       <main className="relative overflow-hidden pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-zinc-900 mb-8">Política de Privacidade</h1>
+          <h1 className="font-display text-4xl font-bold text-zinc-900 dark:text-mist mb-8">Política de Privacidade</h1>
 
-          <div className="space-y-8 text-zinc-700 leading-relaxed">
+          <div className="space-y-8 text-zinc-700 dark:text-mist-soft leading-relaxed">
             <section>
-              <h2 className="text-2xl font-bold text-zinc-900 mb-4">1. Introdução</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-mist mb-4">1. Introdução</h2>
               <p>
                 A OPTIMAFY se preocupa com a privacidade e a segurança dos dados pessoais dos seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos as informações que você nos fornece.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-zinc-900 mb-4">2. Informações Coletadas</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-mist mb-4">2. Informações Coletadas</h2>
               <p className="mb-4">
                 Coletamos informações que você nos fornece diretamente, como:
               </p>
@@ -30,21 +30,21 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-zinc-900 mb-4">3. Uso das Informações</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-mist mb-4">3. Uso das Informações</h2>
               <p>
                 Utilizamos as informações coletadas exclusivamente para entrar em contato com você, responder suas perguntas e fornecer informações sobre nossos serviços. Não compartilhamos suas informações pessoais com terceiros, exceto quando exigido por lei.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-zinc-900 mb-4">4. Armazenamento e Segurança</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-mist mb-4">4. Armazenamento e Segurança</h2>
               <p>
                 Adotamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-zinc-900 mb-4">5. Seus Direitos (LGPD)</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-mist mb-4">5. Seus Direitos (LGPD)</h2>
               <p className="mb-4">
                 De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:
               </p>
@@ -57,14 +57,14 @@ export default function PoliticaDePrivacidadePage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-zinc-900 mb-4">6. Cookies</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-mist mb-4">6. Cookies</h2>
               <p>
                 Nosso site pode utilizar cookies para melhorar sua experiência de navegação. Para mais informações, consulte nossa Política de Cookies.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-zinc-900 mb-4">7. Contato</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-mist mb-4">7. Contato</h2>
               <p>
                 Se você tiver dúvidas sobre esta Política de Privacidade ou quiser exercer seus direitos, entre em contato conosco através do e-mail: optimafy@gmail.com
               </p>

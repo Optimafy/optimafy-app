@@ -8,6 +8,7 @@ import {
   X,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Início", href: "/" },
@@ -56,19 +57,21 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/70 backdrop-blur-2xl border-b border-zinc-200/60 shadow-sm shadow-zinc-100/10"
+          ? "bg-white/70 dark:bg-abyss/70 backdrop-blur-2xl border-b border-zinc-200/60 dark:border-white/10 shadow-sm shadow-zinc-100/10 dark:shadow-none"
           : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8 flex items-center justify-center">
+          <Link href="/" className="flex items-center group">
+            <div className="relative w-8 h-8 pr-2 flex items-center justify-center">
               <img src="/LOGO.svg" className="w-8 h-8 object-contain" alt="OPTIMAFY Logo" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-zinc-900">
-              OPTIMA<span className="text-[#1B365D]">FY</span>
+            <span className="font-display text-xl font-bold tracking-tight">
+              OPTIMA
+            </span><span className="font-display text-xl font-bold tracking-tight brand-gradient-text">
+              FY
             </span>
           </Link>
 
@@ -78,7 +81,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 rounded-lg hover:bg-zinc-100/50 transition-all duration-300"
+                className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-mist-soft hover:text-zinc-900 dark:hover:text-mist rounded-lg hover:bg-zinc-100/50 dark:hover:bg-white/5 transition-all duration-300"
               >
                 {link.label}
               </Link>
@@ -86,7 +89,7 @@ export default function Navbar() {
             {isDev && (
               <Link
                 href="/blog"
-                className="px-4 py-2 text-sm font-medium text-violet-600 hover:text-violet-800 rounded-lg hover:bg-violet-50 transition-all duration-300"
+                className="px-4 py-2 text-sm font-medium text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 rounded-lg hover:bg-violet-50 dark:hover:bg-violet-500/10 transition-all duration-300"
               >
                 Blog
               </Link>
@@ -95,9 +98,10 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="/solucoes"
-              className="px-4 py-2 text-sm font-medium text-zinc-700 border border-zinc-200 rounded-lg hover:border-zinc-400 hover:text-zinc-950 hover:bg-zinc-50/50 transition-all duration-300"
+              className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-mist-soft border border-zinc-200 dark:border-white/10 rounded-lg hover:border-zinc-400 dark:hover:border-white/30 hover:text-zinc-950 dark:hover:text-mist hover:bg-zinc-50/50 dark:hover:bg-white/5 transition-all duration-300"
             >
               Ver Soluções
             </Link>
@@ -114,13 +118,16 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button
-            onClick={handleToggleMenu}
-            className="lg:hidden p-2 text-zinc-600 hover:text-zinc-900 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={handleToggleMenu}
+              className="p-2 text-zinc-600 dark:text-mist-soft hover:text-zinc-900 dark:hover:text-mist transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -132,7 +139,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-zinc-200/60 will-change-transform"
+            className="lg:hidden bg-white/95 dark:bg-abyss/95 backdrop-blur-2xl border-b border-zinc-200/60 dark:border-white/10 will-change-transform"
           >
             <div className="px-4 py-6 space-y-1">
               {navLinks.map((link, i) => (
@@ -145,7 +152,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={handleLinkClick}
-                    className="block px-4 py-3 text-base font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100/50 rounded-lg transition-all"
+                    className="block px-4 py-3 text-base font-medium text-zinc-700 dark:text-mist-soft hover:text-zinc-950 dark:hover:text-mist hover:bg-zinc-100/50 dark:hover:bg-white/5 rounded-lg transition-all"
                   >
                     {link.label}
                   </Link>
@@ -160,7 +167,7 @@ export default function Navbar() {
                   <Link
                     href="/blog"
                     onClick={handleLinkClick}
-                    className="block px-4 py-3 text-base font-medium text-violet-600 hover:text-violet-800 hover:bg-violet-50 rounded-lg transition-all"
+                    className="block px-4 py-3 text-base font-medium text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 hover:bg-violet-50 dark:hover:bg-violet-500/10 rounded-lg transition-all"
                   >
                     Blog
                   </Link>
@@ -170,7 +177,7 @@ export default function Navbar() {
                 <Link
                   href="/solucoes"
                   onClick={handleLinkClick}
-                  className="block w-full text-center px-4 py-3 text-sm font-medium text-zinc-700 border border-zinc-200 rounded-lg hover:border-zinc-400 hover:bg-zinc-50 transition-all"
+                  className="block w-full text-center px-4 py-3 text-sm font-medium text-zinc-700 dark:text-mist-soft border border-zinc-200 dark:border-white/10 rounded-lg hover:border-zinc-400 dark:hover:border-white/30 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all"
                 >
                   Ver Soluções
                 </Link>

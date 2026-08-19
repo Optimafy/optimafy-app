@@ -30,6 +30,7 @@ const solutions = [
       { name: "AWS", icon: FaAws },
     ],
     gradient: "from-violet-500 to-purple-600",
+    image: "/images/solucoes1.webp",
     whatsappMessage: "Olá! Quero saber mais sobre os sistemas e plataformas sob medida que vocês criam para organizar processos empresariais.",
   },
   {
@@ -47,6 +48,7 @@ const solutions = [
       { name: "Node.js", icon: FaNodeJs },
     ],
     gradient: "from-blue-500 to-cyan-500",
+    image: "/images/solucoes2.webp",
     whatsappMessage: "Olá! Quero conversar sobre automatização de tarefas repetitivas, como integração de dados, envio de e-mails e atualização de planilhas.",
   },
   {
@@ -65,6 +67,7 @@ const solutions = [
       { name: "PostgreSQL", icon: SiPostgresql },
     ],
     gradient: "from-cyan-500 to-teal-500",
+    image: "/images/solucoes3.webp",
     whatsappMessage: "Olá! Quero entender melhor sobre os dashboards para acompanhar vendas, operação, clientes e resultados em tempo real.",
   },
   {
@@ -83,6 +86,7 @@ const solutions = [
       { name: "Python", icon: FaPython },
     ],
     gradient: "from-indigo-500 to-violet-600",
+    image: "/images/contato.webp",
     whatsappMessage: "Olá! Quero conversar sobre integração de sistemas como ERPs, CRMs e plataformas legadas em um ecossistema unificado.",
   },
 ];
@@ -90,7 +94,7 @@ const solutions = [
 export default function SolucoesPage() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-abyss">
       <Navbar />
       <main className="relative overflow-hidden pt-24">
         {/* Hero Section */}
@@ -105,19 +109,19 @@ export default function SolucoesPage() {
             >
               <motion.p
                 variants={fadeInUp}
-                className="text-sm font-semibold text-violet-600 uppercase tracking-widest mb-4"
+                className="text-sm font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-widest mb-4"
               >
                 Nossas Soluções
               </motion.p>
               <motion.h1
                 variants={fadeInUp}
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900 mb-4"
+                className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900 dark:text-mist mb-4"
               >
                 Soluções que resolvem seus problemas
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-base sm:text-lg text-zinc-600 max-w-2xl mx-auto mb-7"
+                className="text-base sm:text-lg text-zinc-600 dark:text-mist-soft max-w-2xl mx-auto mb-7"
               >
                 Cada solução começa por entender o seu problema, então mostramos como resolvemos.
               </motion.p>
@@ -144,7 +148,16 @@ export default function SolucoesPage() {
                     variants={fadeInUp}
                     className="w-full"
                   >
-                    <div className="p-5 rounded-2xl border border-zinc-200 bg-zinc-50">
+                    <div className="rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/[0.03] overflow-hidden">
+                      <img
+                        src={solution.image}
+                        alt={solution.title}
+                        width={1280}
+                        height={480}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        className="w-full h-48 sm:h-56 object-cover"
+                      />
+                      <div className="p-5">
                       <div className="mb-4">
                         <div
                           className={`w-10 h-10 rounded-xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center shadow-lg`}
@@ -152,23 +165,23 @@ export default function SolucoesPage() {
                           <solution.icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
-                      <h2 className="text-xl font-bold text-zinc-900 mb-6">{solution.title}</h2>
+                      <h2 className="font-display text-xl font-bold text-zinc-900 dark:text-mist mb-6">{solution.title}</h2>
 
                       <div className="mb-6">
-                        <h3 className="text-base font-semibold text-red-600 mb-2">O Problema</h3>
-                        <p className="text-zinc-700 text-sm">{solution.problem}</p>
+                        <h3 className="text-base font-semibold text-red-600 dark:text-red-400 mb-2">O Problema</h3>
+                        <p className="text-zinc-700 dark:text-mist-soft text-sm">{solution.problem}</p>
                       </div>
 
                       <div className="mb-6">
-                        <h3 className="text-base font-semibold text-green-600 mb-2">A Solução</h3>
-                        <p className="text-zinc-700 text-sm">{solution.solution}</p>
+                        <h3 className="text-base font-semibold text-green-600 dark:text-green-400 mb-2">A Solução</h3>
+                        <p className="text-zinc-700 dark:text-mist-soft text-sm">{solution.solution}</p>
                       </div>
 
                       <div className="mb-6">
-                        <h3 className="text-base font-semibold text-violet-600 mb-3">Benefícios</h3>
+                        <h3 className="text-base font-semibold text-violet-600 dark:text-violet-400 mb-3">Benefícios</h3>
                         <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
                           {solution.benefits.map((benefit, i) => (
-                            <li key={i} className="flex items-center gap-3 text-zinc-700 text-sm">
+                            <li key={i} className="flex items-center gap-3 text-zinc-700 dark:text-mist-soft text-sm">
                               <div className="w-2 h-2 rounded-full bg-violet-500 shrink-0" />
                               <span>{benefit}</span>
                             </li>
@@ -176,19 +189,19 @@ export default function SolucoesPage() {
                         </ul>
                       </div>
 
-                      <div className="mb-6 border border-zinc-200 rounded-xl p-4 bg-zinc-50/50">
+                      <div className="mb-6 border border-zinc-200 dark:border-white/10 rounded-xl p-4 bg-zinc-50/50 dark:bg-white/[0.03]">
                         {/* Botão do Dropdown */}
                         <button
                           onClick={() => setIsOpen(!isOpen)}
                           className="flex items-center justify-between w-full text-left"
                         >
-                          <h3 className="text-base font-semibold text-zinc-700">
+                          <h3 className="text-base font-semibold text-zinc-700 dark:text-mist-soft">
                               Tecnologias (Informação Complementar)
                           </h3>
-                          <ChevronDown 
-                            className={`w-5 h-5 text-zinc-500 transition-transform duration-200 ${
+                          <ChevronDown
+                            className={`w-5 h-5 text-zinc-500 dark:text-mist-soft transition-transform duration-200 ${
                               isOpen ? 'rotate-180' : ''
-                            }`} 
+                            }`}
                           />
                         </button>
 
@@ -197,9 +210,9 @@ export default function SolucoesPage() {
                           <div className="mt-4">
                             <div className="flex flex-wrap gap-3">
                               {solution.tech.map((tech, i) => (
-                                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-zinc-200 shadow-sm">
-                                  <tech.icon className="w-3.5 h-3.5 text-zinc-700" />
-                                  <span className="text-xs text-zinc-700 font-medium">{tech.name}</span>
+                                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-white/[0.04] border border-zinc-200 dark:border-white/10 shadow-sm">
+                                  <tech.icon className="w-3.5 h-3.5 text-zinc-700 dark:text-mist-soft" />
+                                  <span className="text-xs text-zinc-700 dark:text-mist-soft font-medium">{tech.name}</span>
                                 </div>
                               ))}
                             </div>
@@ -213,6 +226,7 @@ export default function SolucoesPage() {
                           message={solution.whatsappMessage}
                         />
                       </div>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -222,7 +236,7 @@ export default function SolucoesPage() {
         </div>
 
         {/* CTA Section */}
-        <section className="py-12 bg-gradient-to-br from-violet-50 to-blue-50">
+        <section className="py-12 bg-gradient-to-br from-violet-50 to-blue-50 dark:from-abyss-2 dark:to-abyss-2">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               variants={staggerContainer}
@@ -232,13 +246,13 @@ export default function SolucoesPage() {
             >
               <motion.h2
                 variants={fadeInUp}
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 mb-4"
+                className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-900 dark:text-mist mb-4"
               >
                 Pronto para transformar sua operação?
               </motion.h2>
               <motion.p
                 variants={fadeInUp}
-                className="text-base text-zinc-600 mb-7"
+                className="text-base text-zinc-600 dark:text-mist-soft mb-7"
               >
                 Converse com nossos especialistas e descubra como podemos ajudar sua empresa com tecnologia sob medida.
               </motion.p>

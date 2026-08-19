@@ -24,7 +24,7 @@ const differentiators = [
 
 export default function SobrePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-abyss">
       <Navbar />
       <main className="relative overflow-hidden pt-24">
         {/* Hero Section */}
@@ -39,19 +39,19 @@ export default function SobrePage() {
             >
               <motion.p
                 variants={fadeInUp}
-                className="text-sm font-semibold text-violet-600 uppercase tracking-widest mb-4"
+                className="text-sm font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-widest mb-4"
               >
                 Sobre Nós
               </motion.p>
               <motion.h1
                 variants={fadeInUp}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 mb-6"
+                className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 dark:text-mist mb-6"
               >
                 Soluções que Fazem a Diferença
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-lg sm:text-xl text-zinc-600 max-w-3xl mx-auto mb-8"
+                className="text-lg sm:text-xl text-zinc-600 dark:text-mist-soft max-w-3xl mx-auto mb-8"
               >
                 Somos uma equipe apaixonada por ajudar empresas a trabalhar melhor com tecnologia. Focamos em resultados tangíveis, confiança e atendimento personalizado.
               </motion.p>
@@ -62,8 +62,30 @@ export default function SobrePage() {
           </div>
         </section>
 
+        {/* Imagem de destaque */}
+        <section className="py-6">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
+              className="relative rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-sm"
+            >
+              <img
+                src="/images/sobre.webp"
+                alt="Equipe OPTIMAFY trabalhando em soluções de tecnologia"
+                width={1280}
+                height={718}
+                loading="lazy"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </motion.div>
+          </div>
+        </section>
+
         {/* Mission & Vision */}
-        <section className="py-20 bg-zinc-50">
+        <section className="py-20 bg-zinc-50 dark:bg-abyss-2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -72,21 +94,21 @@ export default function SobrePage() {
               viewport={viewportConfig}
               className="grid grid-cols-1 lg:grid-cols-2 gap-12"
             >
-              <motion.div variants={fadeInUp} className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+              <motion.div variants={fadeInUp} className="surface-card p-8">
                 <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center mb-6">
                   <Target className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-zinc-900 mb-4">Missão</h3>
-                <p className="text-zinc-600 text-lg">
+                <h3 className="font-display text-2xl font-bold text-zinc-900 dark:text-mist mb-4">Missão</h3>
+                <p className="text-zinc-600 dark:text-mist-soft text-lg">
                   Criar soluções digitais que resolvam problemas reais do negócio, otimizem processos e gerem valor tangível para os nossos clientes.
                 </p>
               </motion.div>
-              <motion.div variants={fadeInUp} className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm">
+              <motion.div variants={fadeInUp} className="surface-card p-8">
                 <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6">
                   <Rocket className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-zinc-900 mb-4">Visão</h3>
-                <p className="text-zinc-600 text-lg">
+                <h3 className="font-display text-2xl font-bold text-zinc-900 dark:text-mist mb-4">Visão</h3>
+                <p className="text-zinc-600 dark:text-mist-soft text-lg">
                   Ser referência no mercado de tecnologia, reconhecida pela qualidade das nossas soluções e pela parceria de confiança com os nossos clientes.
                 </p>
               </motion.div>
@@ -106,13 +128,13 @@ export default function SobrePage() {
             >
               <motion.p
                 variants={fadeInUp}
-                className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-4"
+                className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4"
               >
                 Como Trabalhamos
               </motion.p>
               <motion.h2
                 variants={fadeInUp}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900"
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-mist"
               >
                 Nosso Processo em 6 Passos
               </motion.h2>
@@ -125,11 +147,11 @@ export default function SobrePage() {
                   variants={fadeInUp}
                   whileHover={{ y: -4 }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative p-8 rounded-2xl border border-zinc-200 bg-zinc-50 hover:bg-white hover:shadow-lg transition-all duration-300"
+                  className="relative p-8 rounded-2xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/[0.06] hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="text-5xl font-black text-violet-100 mb-4">{step.number}</div>
-                  <h3 className="text-xl font-bold text-zinc-900 mb-3">{step.title}</h3>
-                  <p className="text-zinc-600">{step.description}</p>
+                  <div className="font-display text-5xl font-black text-violet-100 dark:text-violet-500/20 mb-4">{step.number}</div>
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-mist mb-3">{step.title}</h3>
+                  <p className="text-zinc-600 dark:text-mist-soft">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -137,7 +159,7 @@ export default function SobrePage() {
         </section>
 
         {/* Differentiators */}
-        <section className="py-20 bg-gradient-to-br from-violet-50 to-blue-50">
+        <section className="py-20 bg-gradient-to-br from-violet-50 to-blue-50 dark:from-abyss-2 dark:to-abyss-2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -148,13 +170,13 @@ export default function SobrePage() {
             >
               <motion.p
                 variants={fadeInUp}
-                className="text-sm font-semibold text-violet-600 uppercase tracking-widest mb-4"
+                className="text-sm font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-widest mb-4"
               >
                 Diferenciais
               </motion.p>
               <motion.h2
                 variants={fadeInUp}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900"
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-mist"
               >
                 Por que Escolher a OPTIMAFY?
               </motion.h2>
@@ -167,13 +189,13 @@ export default function SobrePage() {
                   variants={fadeInUp}
                   whileHover={{ y: -4 }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-8 rounded-2xl bg-white border border-zinc-200 shadow-sm"
+                  className="surface-card p-8"
                 >
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500 to-blue-600 flex items-center justify-center mb-6">
                     <item.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-zinc-900 mb-4">{item.title}</h3>
-                  <p className="text-zinc-600">{item.description}</p>
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-mist mb-4">{item.title}</h3>
+                  <p className="text-zinc-600 dark:text-mist-soft">{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -181,7 +203,7 @@ export default function SobrePage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-zinc-900">
+        <section className="py-20 bg-zinc-900 dark:bg-abyss-2">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               variants={staggerContainer}
@@ -191,7 +213,7 @@ export default function SobrePage() {
             >
               <motion.h2
                 variants={fadeInUp}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
               >
                 Vamos Trabalhar Juntos?
               </motion.h2>

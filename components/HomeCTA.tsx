@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeInUp, scaleIn, staggerContainer, viewportConfig } from "@/lib/animations";
 import WhatsappButton from "./WhatsappButton";
 import Link from "next/link";
+import SectionBackground from "./SectionBackground";
 
 export default function HomeCTA() {
   return (
@@ -14,9 +15,10 @@ export default function HomeCTA() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-violet-50 via-white to-blue-50"
+          className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-violet-50 via-white to-blue-50 dark:from-transparent dark:via-transparent dark:to-transparent"
         >
-          <div className="absolute inset-0 border border-zinc-200 rounded-3xl" />
+          <SectionBackground variant="blue" className="rounded-3xl" />
+          <div className="absolute inset-0 border border-zinc-200 dark:border-white/10 rounded-3xl dark:bg-white/[0.03]" />
           <div className="relative px-8 py-16 sm:px-16 sm:py-20 text-center">
             <motion.div
               variants={staggerContainer}
@@ -26,14 +28,14 @@ export default function HomeCTA() {
             >
               <motion.h2
                 variants={fadeInUp}
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight mb-6"
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 dark:text-mist tracking-tight mb-6"
               >
                 Pronto para transformar sua operação?
               </motion.h2>
 
               <motion.p
                 variants={fadeInUp}
-                className="max-w-xl mx-auto text-lg text-zinc-600 mb-10"
+                className="max-w-xl mx-auto text-lg text-zinc-600 dark:text-mist-soft mb-10"
               >
                 Converse com nossos especialistas e descubra como podemos acelerar seus resultados com tecnologia sob medida.
               </motion.p>
