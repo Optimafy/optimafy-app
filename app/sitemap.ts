@@ -10,5 +10,6 @@ export default function sitemap() {
     { url: 'https://optimafy.net/politica-de-privacidade', changeFrequency: 'yearly' as const, priority: 0.3 },
     { url: 'https://optimafy.net/politica-de-cookies', changeFrequency: 'yearly' as const, priority: 0.3 },
     { url: 'https://optimafy.net/termos-de-uso', changeFrequency: 'yearly' as const, priority: 0.3 },
+    { url: 'https://optimafy.net/sobre-seus-dados', changeFrequency: 'yearly' as const, priority: 0.3 },
   ]
 }

@@ -155,6 +155,14 @@ export default function Footer() {
                   Termos de Uso
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/sobre-seus-dados"
+                  className="text-sm text-zinc-600 dark:text-mist-soft hover:text-zinc-900 dark:hover:text-mist transition-colors duration-200"
+                >
+                  Sobre Seus Dados
+                </Link>
+              </li>
             </ul>
           </div>
 
