@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   title: "OPTIMAFY — Engenharia de Software e Automação Inteligente",
   description:
     "Desenvolvimento de software sob medida, automações inteligentes e análise de dados para empresas que querem escalar com tecnologia de precisão e reduzir custos.",
-  verification: {
+  other: {
     'facebook-domain-verification': ['3e368t7e2jdt00h4xankc9bwsp9d6t']
   },
   keywords: [
