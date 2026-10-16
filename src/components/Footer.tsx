@@ -156,19 +156,19 @@ export function Footer({ onOpenAiStudio, onNavigate }: FooterProps) {
             </p>
 
             {/* Direct Location */}
-            <div className="pt-1 w-fit flex items-center gap-2.5 px-4 py-2.5 border border-border hover:border-gold bg-surface transition-all text-xs font-mono text-muted hover:text-ink cursor-pointer">
+            <div className="pt-2 w-fit flex items-center gap-2.5 px-4 py-2.5 border border-border hover:border-gold bg-surface transition-all text-xs font-mono text-muted hover:text-ink cursor-pointer">
                 <MapPin className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
                 <span>Goiânia, GO — Brasil</span>
             </div>
             
             {/* Direct Phone Action */}
-            <div className="pt-1 w-fit flex items-center gap-2.5 px-4 py-2.5 border border-border hover:border-gold bg-surface transition-all text-xs font-mono text-muted hover:text-ink cursor-pointer">
+            <div className="pt-2 w-fit flex items-center gap-2.5 px-4 py-2.5 border border-border hover:border-gold bg-surface transition-all text-xs font-mono text-muted hover:text-ink cursor-pointer">
                 <Phone className="w-3.5 h-3.5 text-gold group-hover:scale-110 transition-transform" />
                 <span>+55 (62) 8247-0405</span>
             </div>
 
             {/* Direct Email Action */}
-            <div className="pt-1">
+            <div className="pt-2">
               <button
                 onClick={copyEmail}
                 className="group inline-flex items-center gap-2.5 px-4 py-2.5 border border-border hover:border-gold bg-surface transition-all text-xs font-mono text-muted hover:text-ink cursor-pointer"
