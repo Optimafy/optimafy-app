@@ -1,0 +1,6 @@
+{
+  "name": "OPTIMAFY — Tecnologia que Trabalha Pelo Seu Negócio",
+  "description": "Transformamos a tecnologia no seu melhor funcionário. Criamos soluções digitais que organizam sua rotina, valorizam sua marca e aumentam seus lucros.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

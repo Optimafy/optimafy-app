@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-syne: 'Syne', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-canvas: var(--token-canvas);
+  --color-canvas-soft: var(--token-canvas-soft);
+  --color-ink: var(--token-ink);
+  --color-ink-soft: var(--token-ink-soft);
+  --color-surface: var(--token-surface);
+  --color-surface-2: var(--token-surface-2);
+  --color-surface-3: var(--token-surface-3);
+  --color-border: var(--token-border);
+  --color-border-soft: var(--token-border-soft);
+  --color-gold: var(--token-gold);
+  --color-gold-hover: var(--token-gold-hover);
+  --color-gold-muted: var(--token-gold-muted);
+  --color-muted: var(--token-muted);
+  --color-muted-soft: var(--token-muted-soft);
+  --color-glow: var(--token-glow);
+  --color-glow-subtle: var(--token-glow-subtle);
+}
+
+/* =========================================================
+   TEMA CLARO (Light Mode)
+   - Fundo: branco (#ffffff)
+   - Texto: preto (#000000)
+   - Accents dourados: dourado profundo com alto contraste (#a17423)
+   - Glow: brilho dourado translúcido ajustado para superfície clara
+   ========================================================= */
+:root {
+  --font-syne: 'Syne', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Backgrounds */
+  --token-canvas: #ffffff;
+  --token-canvas-soft: #f9fafb;
+
+  /* Typography */
+  --token-ink: #000000;
+  --token-ink-soft: #18181b;
+
+  /* Surfaces & Containers */
+  --token-surface: #f4f4f5;
+  --token-surface-2: #e4e4e7;
+  --token-surface-3: #d4d4d8;
+
+  /* Borders */
+  --token-border: #e4e4e7;
+  --token-border-soft: #f4f4f5;
+
+  /* Gold Accents ajustados para contraste perfeito no branco */
+  --token-gold: #a17423;
+  --token-gold-hover: #855f19;
+  --token-gold-muted: rgba(161, 116, 35, 0.12);
+
+  /* Textos secundários */
+  --token-muted: #52525b;
+  --token-muted-soft: #71717a;
+
+  /* Brilho Glow ajustado para modo claro */
+  --token-glow: rgba(161, 116, 35, 0.24);
+  --token-glow-subtle: rgba(161, 116, 35, 0.12);
+}
+
+/* =========================================================
+   TEMA ESCURO (Dark Mode)
+   - Fundo: obsidian (#0a0a0a)
+   - Texto: creme suave (#f5f0eb)
+   - Accents dourados: dourado luminoso (#c4a97d)
+   - Glow: brilho expansivo luminoso
+   ========================================================= */
+html.dark {
+  /* Backgrounds */
+  --token-canvas: #0a0a0a;
+  --token-canvas-soft: #111111;
+
+  /* Typography */
+  --token-ink: #f5f0eb;
+  --token-ink-soft: #e0e0e0;
+
+  /* Surfaces & Containers */
+  --token-surface: #111111;
+  --token-surface-2: #1a1a1a;
+  --token-surface-3: #242424;
+
+  /* Borders */
+  --token-border: #262626;
+  --token-border-soft: #1c1c1c;
+
+  /* Gold Accents luminosos */
+  --token-gold: #c4a97d;
+  --token-gold-hover: #d8c298;
+  --token-gold-muted: rgba(196, 169, 125, 0.20);
+
+  /* Textos secundários */
+  --token-muted: #888888;
+  --token-muted-soft: #666666;
+
+  /* Brilho Glow para modo escuro */
+  --token-glow: rgba(196, 169, 125, 0.35);
+  --token-glow-subtle: rgba(196, 169, 125, 0.20);
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--token-canvas);
+  color: var(--token-ink);
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+h1, h2, h3, h4, .font-syne {
+  font-family: var(--font-syne);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--token-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--token-surface-3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--token-gold);
+}
+
+/* Noise texture overlay for cinematic luxury feel */
+.bg-noise {
+  background-image: radial-gradient(rgba(128, 128, 128, 0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glow Utilities */
+.gold-glow {
+  box-shadow: 0 0 35px -5px var(--token-glow);
+}
+
+.gold-glow-subtle {
+  box-shadow: 0 0 20px -3px var(--token-glow-subtle);
+}
